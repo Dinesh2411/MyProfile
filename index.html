@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Profile</title>
+  <title>My Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script
@@ -16,6 +16,19 @@
     .custome_img-fluid {
      max-width: 55%;
      height: auto;
+    }
+    body::-webkit-scrollbar-track {
+    border-radius: 5px !important;
+    }
+
+    body::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+    }
+
+    body::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 5px !important;
     }
     div::-webkit-scrollbar-track {
     border-radius: 5px !important;
@@ -84,8 +97,8 @@
     color: white;
 }
 .data_container {
-    /* padding-right: calc(var(--bs-gutter-x) * 2.5) !important; */
-    padding-left: calc(var(--bs-gutter-x) * 2.5) !important;
+    padding-right: calc(var(--bs-gutter-x) * 1.5) !important;
+    padding-left: calc(var(--bs-gutter-x) * 1.5) !important;
 }
 .hide{
     display: none;
@@ -102,10 +115,67 @@
    </style>
 </head>
 <body>
+    <nav class="navbar navbar-light bg-light fixed-top hide" style="background-color:#f5f4f9 !important;" id="mobileNavbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="mailto:dineshphalwadiya1995@gmail.com">My Profile</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" style="background-color:#f5f4f9 !important;"  tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Dinesh Falwadiya</h5>
+              <button type="button" id="CloseNavbar" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container p-2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="https://media-exp1.licdn.com/dms/image/C4E03AQECE4lmQ10Z4Q/profile-displayphoto-shrink_400_400/0/1646580338987?e=1666224000&v=beta&t=9DB8qneBPlFuu-WTuQFj7L4Z2enOdKhY9Amicebv7v4" class="rounded-circle mx-auto d-block custome_img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="container p-2">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h7>(dineshphalwadiya1995@gmail.com)</h7>
+                            <h6>Mobile App Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="container p-2">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h5><a class="AnchorCursorPointer ActiveAnchor" data-id="div_home">Home</a></h5>
+                            <!-- <h5><a class="AnchorCursorPointer" data-id="div_skill">Skills</a></h5> -->
+                            <h5><a class="AnchorCursorPointer" data-id="div_education">Education</a></h5>
+                            <h5><a class="AnchorCursorPointer" data-id="div_experience">Experience</a></h5>
+                            <h5><a class="AnchorCursorPointer" data-id="div_work">My Apps</a></h5>
+                            <h5><a class="AnchorCursorPointer" data-id="" onclick="fn_RedirectToUrl('https://medium.com/@dineshphalwadiya1995')">Blogs</a></h5>
+                         </div>
+                    </div>
+                </div>
+                <div class="container p-2">
+                    <div class="text-center p-3">
+                        © 2022 Copyright: Dinesh Falwadiya
+                      </div>
+                </div>
+                <div class="container p-2 text-center">
+                    <small >Developed by : <a href="javascript:void(0)" onclick="fn_RedirectToUrl('https://www.linkedin.com/in/immukesh/')">Mukesh Fulwariya</a></small>
+                </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="icon-bar">
+        <a class="youtube" title="Gmail" href="mailto:dineshphalwadiya1995@gmail.com"><i class="fa fa-google"></i></a>
+        <a class="linkedin" title="LinkedIn" onclick="fn_RedirectToUrl('https://www.linkedin.com/in/dinesh-falwadiya-8b3b84122')"><i class="fa fa-linkedin"></i></a>
+        <a class="youtube" title="YouTube"  onclick="fn_RedirectToUrl('https://www.youtube.com/channel/UC0UN3DBYuSlLQ6kxBtjZbKQ')"><i class="fa fa-youtube"></i></a> 
+        <a class="stack-overflow" title="Stack Overflow" onclick="fn_RedirectToUrl('https://stackoverflow.com/users/7761544/dinesh-phalwadiya')"><i class="fa fa-stack-overflow"></i></a> 
+    </div>
     <div class="container shadow-lg">
         
         <div class="row">
-            <div class="col-md-3 overFlowScrollbar" style="height: 100vh;background-color:#f5f4f9;">
+            <div id="desktopNavbar" class="col-md-3 overFlowScrollbar hide" style="height: 100vh;background-color:#f5f4f9;">
                 <div class="container p-2">
                     <div class="row">
                         <div class="col-md-12">
@@ -144,17 +214,12 @@
                 </div>
             </div>
             
-            <div class="col-md-9" style="height: 100vh;">
-                <div class="icon-bar">
-                    <a class="youtube" title="Gmail" href="mailto:dineshphalwadiya1995@gmail.com"><i class="fa fa-google"></i></a>
-                    <a class="linkedin" title="LinkedIn" onclick="fn_RedirectToUrl('https://www.linkedin.com/in/dinesh-falwadiya-8b3b84122')"><i class="fa fa-linkedin"></i></a>
-                    <a class="youtube" title="YouTube"  onclick="fn_RedirectToUrl('https://www.youtube.com/channel/UC0UN3DBYuSlLQ6kxBtjZbKQ')"><i class="fa fa-youtube"></i></a> 
-                    <a class="stack-overflow" title="Stack Overflow" onclick="fn_RedirectToUrl('https://stackoverflow.com/users/7761544/dinesh-phalwadiya')"><i class="fa fa-stack-overflow"></i></a> 
-                </div>
+            <div class="col-md-9 hide" id="MainBody" style="height: 100vh;">
+               
                 <div class="container data_container">
                     <div class="row">
                         <div class="col-md-12 pages overFlowScrollbar p-3" id="div_home">
-                            <div class="card">
+                            <div class="card" style="width: 100%;">
                                 <div class="card-body">
                                   <h5 class="card-title">About</h5>
                                   <p class="card-text">
@@ -294,13 +359,31 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
+    
+
 </body>
 <script>
+    
     $(document).ready(function(){
+        if(fn_IsMobileView()){
+            $("#mobileNavbar").show();
+            $("#desktopNavbar").hide();
+            $("#MainBody").attr("style","margin-top:15%");
+            $("#MainBody").removeClass("col-md-9");
+            $("#MainBody").addClass("col-md-12");
+        } else{
+            $("#mobileNavbar").hide();
+            $("#desktopNavbar").show();
+        }
+        $("#MainBody").show();
         $("#div_home").click();
         $('.AnchorCursorPointer').click(function(){
+            if(fn_IsMobileView()){
+                $("#CloseNavbar").click();
+            }
             $('.AnchorCursorPointer').removeClass("ActiveAnchor");
             $(this).addClass("ActiveAnchor");
             const pagesid = $(this).attr("data-id");
@@ -315,6 +398,9 @@
     function fn_HideAndShowPages(p_elementid){
         $(".pages").hide();
         $("#"+p_elementid).show();
+    }
+    function fn_IsMobileView(){
+        return $(window).width()<=1199;
     }
 </script>
 </html>
