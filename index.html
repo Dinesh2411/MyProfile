@@ -117,8 +117,8 @@
 <body>
     <nav class="navbar navbar-light bg-light fixed-top hide" style="background-color:#f5f4f9 !important;" id="mobileNavbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="mailto:dineshphalwadiya1995@gmail.com">My Profile</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <a class="navbar-brand" href="mailto:dineshphalwadiya1995@gmail.com" id="navbarTitle">Home</a>
+          <button class="navbar-toggler" id="navbarToggleButton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="offcanvas offcanvas-end" style="background-color:#f5f4f9 !important;"  tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -145,11 +145,11 @@
                 <div class="container p-2">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h5><a class="AnchorCursorPointer ActiveAnchor" data-id="div_home">Home</a></h5>
+                            <h5><a class="AnchorCursorPointer ActiveAnchor" data-id="div_home" data-title="Home">Home</a></h5>
                             <!-- <h5><a class="AnchorCursorPointer" data-id="div_skill">Skills</a></h5> -->
-                            <h5><a class="AnchorCursorPointer" data-id="div_education">Education</a></h5>
-                            <h5><a class="AnchorCursorPointer" data-id="div_experience">Experience</a></h5>
-                            <h5><a class="AnchorCursorPointer" data-id="div_work">My Apps</a></h5>
+                            <h5><a class="AnchorCursorPointer" data-id="div_education" data-title="Education">Education</a></h5>
+                            <h5><a class="AnchorCursorPointer" data-id="div_experience" data-title="Experience">Experience</a></h5>
+                            <h5><a class="AnchorCursorPointer" data-id="div_work" data-title="My Apps">My Apps</a></h5>
                             <h5><a class="AnchorCursorPointer" data-id="" onclick="fn_RedirectToUrl('https://medium.com/@dineshphalwadiya1995')">Blogs</a></h5>
                          </div>
                     </div>
@@ -374,6 +374,7 @@
             $("#MainBody").attr("style","margin-top:15%");
             $("#MainBody").removeClass("col-md-9");
             $("#MainBody").addClass("col-md-12");
+            $("#navbarToggleButton").click();
         } else{
             $("#mobileNavbar").hide();
             $("#desktopNavbar").show();
@@ -381,14 +382,17 @@
         $("#MainBody").show();
         $("#div_home").click();
         $('.AnchorCursorPointer').click(function(){
-            if(fn_IsMobileView()){
-                $("#CloseNavbar").click();
-            }
             $('.AnchorCursorPointer').removeClass("ActiveAnchor");
             $(this).addClass("ActiveAnchor");
             const pagesid = $(this).attr("data-id");
             if(pagesid !== null && pagesid !== undefined && pagesid.trim() !== ""){
                 fn_HideAndShowPages(pagesid);
+            }
+            if(fn_IsMobileView()){
+                $("#CloseNavbar").click();
+                if(pagesid !== null && pagesid !== undefined && pagesid.trim() !== ""){
+                    $("#navbarTitle").text($(this).attr("data-title"));
+                }
             }
         });
     });
